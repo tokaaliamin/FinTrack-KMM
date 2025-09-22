@@ -9,6 +9,18 @@ val Primary20 = Color(0xFFFAFAFA)
 val Secondary80 = Color(0xFFABCDEF)
 val Secondary40 = Color(0xFF123456)
 
-// Optional neutrals, backgrounds, etc.
 val Background = Color(0xFFFFFFFF)
 val OnBackground = Color(0xFF0C111D)
+
+// Neutral Darks (used for text)
+val Neutral900 = Color(0xFF0C111D) // Main text
+val Neutral800 = Color(0xFF161B26)
+val Neutral700 = Color(0xFF333741)
+val Neutral600 = Color(0xFF61646C)
+val Neutral500 = Color(0xFF94969C)
+
+// Neutral Lights (used for bg, strokes, cards)
+val Neutral100 = Color(0xFFCECfd2)
+val Neutral50 = Color(0xFFECECED)
+val Neutral25 = Color(0xFFF5F5F6)
+val Neutral10 = Color(0xFFFAFAFA)
