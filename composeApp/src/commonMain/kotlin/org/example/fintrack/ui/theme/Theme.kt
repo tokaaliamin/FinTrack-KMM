@@ -20,6 +20,8 @@ private val LightColors = lightColorScheme(
 
     surfaceVariant = Neutral25,
     onSurfaceVariant = Neutral700,
+
+    outline = Neutral50
 )
 
 private val DarkColors = darkColorScheme(
@@ -36,6 +38,8 @@ private val DarkColors = darkColorScheme(
 
     surfaceVariant = Neutral700,
     onSurfaceVariant = Neutral25,
+
+    outline = Neutral50
 )
 
 @Composable

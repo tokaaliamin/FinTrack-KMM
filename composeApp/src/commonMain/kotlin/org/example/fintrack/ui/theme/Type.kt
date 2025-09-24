@@ -19,6 +19,12 @@ fun Type(): androidx.compose.material3.Typography {
 
     return with(MaterialTheme.typography) {
         copy(
+            titleLarge = titleLarge.copy(
+                fontFamily = myFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = 40.sp,
+                lineHeight = 1.5.em
+            ),
             titleSmall = titleSmall.copy(
                 fontFamily = myFontFamily,
                 fontWeight = FontWeight.Normal,

@@ -21,6 +21,6 @@ val Neutral500 = Color(0xFF94969C)
 
 // Neutral Lights (used for bg, strokes, cards)
 val Neutral100 = Color(0xFFCECfd2)
-val Neutral50 = Color(0xFFECECED)
+val Neutral50 = Color(0xFFCECFD2)
 val Neutral25 = Color(0xFFF5F5F6)
 val Neutral10 = Color(0xFFFAFAFA)
