@@ -19,76 +19,90 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import fintrack_kmm.composeapp.generated.resources.Res
 import fintrack_kmm.composeapp.generated.resources.ic_create_savings_goal
 import fintrack_kmm.composeapp.generated.resources.ic_link_bank_account
 import fintrack_kmm.composeapp.generated.resources.ic_setup_pin
 import org.example.fintrack.components.AppButton
+import org.example.fintrack.features.accountSetup.CreatePassCodeScreen
 
-@Composable
-fun GetStartedScreen(onSetUpPinClick: () -> Unit, modifier: Modifier = Modifier) {
-    val scrollState = rememberScrollState()
+object GetStartedScreen : Screen {
+    @Composable
+    override fun Content() {
+        val scrollState = rememberScrollState()
 
-    Scaffold(topBar = {
-        TopTitle()
-    }, bottomBar = {
-        AppButton("Skip for now", {})
-    }) { innerPadding ->
-
-        Column(
-            modifier = modifier
-                .padding(innerPadding)
-                .fillMaxSize()
-                .verticalScroll(scrollState)
-        ) {
-            GettingStartedOptionCard(
-                resource = Res.drawable.ic_setup_pin,
-                title = "Set up a pin",
-                subTitle = "Enhance your  account security.",
-                onClick = onSetUpPinClick,
-                modifier = Modifier.padding(top = 8.dp)
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            GettingStartedOptionCard(
-                resource = Res.drawable.ic_link_bank_account,
-                title = "Link your bank accounts.",
-                subTitle = "Link your bank accounts to start tracking your expenses.",
+        Scaffold(topBar = {
+            TopTitle()
+        }, bottomBar = {
+            AppButton(
+                "Skip for now",
+                modifier = Modifier.navigationBarsPadding().padding(bottom = 24.dp),
                 onClick = {})
+        }) { innerPadding ->
 
-            Spacer(modifier = Modifier.height(24.dp))
+            val navigator = LocalNavigator.currentOrThrow
 
-            GettingStartedOptionCard(
-                resource = Res.drawable.ic_create_savings_goal,
-                title = "Create a savings goal",
-                subTitle = "What are your financial goals?",
-                onClick = {},
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
+            Column(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+            ) {
+                GettingStartedOptionCard(
+                    resource = Res.drawable.ic_setup_pin,
+                    title = "Set up a pin",
+                    subTitle = "Enhance your  account security.",
+                    onClick = { navigator.push(CreatePassCodeScreen) },
+                    modifier = Modifier.padding(top = 8.dp)
+                )
 
+                Spacer(modifier = Modifier.height(24.dp))
+
+                GettingStartedOptionCard(
+                    resource = Res.drawable.ic_link_bank_account,
+                    title = "Link your bank accounts.",
+                    subTitle = "Link your bank accounts to start tracking your expenses.",
+                    onClick = {})
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                GettingStartedOptionCard(
+                    resource = Res.drawable.ic_create_savings_goal,
+                    title = "Create a savings goal",
+                    subTitle = "What are your financial goals?",
+                    onClick = {},
+                    modifier = Modifier.padding(bottom = 8.dp)
+                )
+
+            }
         }
+
     }
-}
 
-@Composable
-private fun TopTitle(modifier: Modifier = Modifier) {
-    val styledText: AnnotatedString = buildAnnotatedString {
-        append("Welcome to ")
 
-        withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
-            append("Fintrack")
+    @Composable
+    private fun TopTitle(modifier: Modifier = Modifier) {
+        val styledText: AnnotatedString = buildAnnotatedString {
+            append("Welcome to ")
+
+            withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                append("Fintrack")
+            }
+
+            append("!\nLet's get you set up.")
         }
 
-        append("!\nLet's get you set up.")
+        Text(
+            text = styledText,
+            style = MaterialTheme.typography.titleSmall,
+            modifier = modifier.statusBarsPadding().navigationBarsPadding()
+                .padding(horizontal = 24.dp)
+                .padding(top = 30.dp)
+        )
     }
-
-    Text(
-        text = styledText,
-        style = MaterialTheme.typography.titleSmall,
-        modifier = modifier.statusBarsPadding().navigationBarsPadding().padding(horizontal = 24.dp)
-            .padding(top = 30.dp)
-    )
 }
 
 

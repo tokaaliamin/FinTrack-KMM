@@ -39,6 +39,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation("cafe.adriel.voyager:voyager-navigator:1.1.0-beta03")
+            implementation("cafe.adriel.voyager:voyager-transitions:1.1.0-beta03")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

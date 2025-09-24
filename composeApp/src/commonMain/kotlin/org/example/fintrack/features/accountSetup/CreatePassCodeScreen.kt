@@ -39,34 +39,45 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import org.example.fintrack.components.AppButton
 import org.example.fintrack.components.AppToolbar
 import org.example.fintrack.ui.theme.Neutral50
 
-@Composable
-fun CreatePassCodeScreen(modifier: Modifier = Modifier) {
-    Scaffold(
-        modifier,
-        topBar = { AppToolbar(text = "Create your passcode", onBackClick = {}) },
-        bottomBar = {
-            AppButton(
-                "Create a Pin",
-                onClick = {},
-                modifier = Modifier.navigationBarsPadding().padding(bottom = 24.dp)
-            )
-        }
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding).padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "For a more secure and convenient way to view your account, create a 4-digit passcode now.",
-                style = MaterialTheme.typography.labelLarge,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier.height(56.dp))
-            Pin()
+object CreatePassCodeScreen : Screen {
+    @Composable
+    override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
+
+        Scaffold(
+            Modifier,
+            topBar = {
+                AppToolbar(
+                    text = "Create your passcode",
+                    onBackClick = { navigator.pop() })
+            },
+            bottomBar = {
+                AppButton(
+                    "Create a Pin",
+                    onClick = {},
+                    modifier = Modifier.navigationBarsPadding().padding(bottom = 24.dp)
+                )
+            }
+        ) { innerPadding ->
+            Column(
+                modifier = Modifier.padding(innerPadding).padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "For a more secure and convenient way to view your account, create a 4-digit passcode now.",
+                    style = MaterialTheme.typography.labelLarge,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(56.dp))
+                Pin()
+            }
         }
     }
 }
