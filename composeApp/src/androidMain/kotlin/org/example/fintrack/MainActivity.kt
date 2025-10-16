@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import org.example.fintrack.navigation.AppRoot
 import org.example.fintrack.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AppTheme {
-                App()
+                AppRoot()
             }
         }
     }
@@ -25,6 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppAndroidPreview() {
     AppTheme {
-        App()
+        AppRoot()
     }
 }
