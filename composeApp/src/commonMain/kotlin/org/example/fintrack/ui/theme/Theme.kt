@@ -11,6 +11,7 @@ private val LightColors = lightColorScheme(
     onPrimary = Primary20,
 
     secondary = Secondary40,
+    tertiary = LightOrange,
 
     background = Neutral10,
     onBackground = Neutral900,
@@ -29,6 +30,7 @@ private val DarkColors = darkColorScheme(
     onPrimary = Color.Black,
 
     secondary = Secondary80,
+    tertiary = LightOrange,
 
     background = Neutral900,
     onBackground = Neutral10,
@@ -39,7 +41,7 @@ private val DarkColors = darkColorScheme(
     surfaceVariant = Neutral700,
     onSurfaceVariant = Neutral25,
 
-    outline = Neutral50
+    outline = Neutral50,
 )
 
 @Composable

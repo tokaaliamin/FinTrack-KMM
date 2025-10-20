@@ -33,6 +33,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(libs.compose.resources)
@@ -41,6 +42,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation("cafe.adriel.voyager:voyager-navigator:1.1.0-beta03")
             implementation("cafe.adriel.voyager:voyager-transitions:1.1.0-beta03")
+            implementation("com.paleblueapps:kmpcore:1.3.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

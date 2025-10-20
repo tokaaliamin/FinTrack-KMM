@@ -24,3 +24,7 @@ val Neutral100 = Color(0xFFCECfd2)
 val Neutral50 = Color(0xFFCECFD2)
 val Neutral25 = Color(0xFFF5F5F6)
 val Neutral10 = Color(0xFFFAFAFA)
+
+val LightOrange = Color(0xFFFFE6CC)
+val Orange = Color(0xFFFF952B)
+val LightGreen = Color(0xFF55AAAA)
